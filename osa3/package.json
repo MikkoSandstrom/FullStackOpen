@@ -15,7 +15,7 @@
     "start": "node index.js",
     "dev": "nodemon index.js",
     "build:ui": "rm -rf dist && cd ../osa2/puhelinluettelo && npm run build && cp -r dist ../../osa3",
-    "deploy:full": "npm run build:ui && git add . && git commit -m uibuild && git push"
+    "deploy:full": "npm run build:ui && git add ../osa2/puhelinluettelo/. .  && git commit -m uibuild && git push"
   },
   "author": "Mikko",
   "license": "ISC",
