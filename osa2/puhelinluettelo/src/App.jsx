@@ -60,7 +60,7 @@ const App = () => {
         personService
           .update(personToUpdate.id,{...personToUpdate, number: newNumber})
           .then(returnedPerson => {
-            setPersons(persons.map(person => person.id != personToUpdate.id ? person : returnedPerson))
+            setPersons(persons.map(person => person.id !== personToUpdate.id ? person : returnedPerson))
             setNewName('')
             setNewNumber('')
             setSuccessMessage(
@@ -69,9 +69,15 @@ const App = () => {
             setTimeout(() => {
               setSuccessMessage(null)
             }, 5000)
-          })
-      }
-    }
+          }).catch(error => {
+                setErrorMessage(
+                  `Information of ${personToUpdate.name} has already been removed from server`
+                )
+                setTimeout(() => {
+                  setErrorMessage(null)
+                }, 5000)
+              })
+      }}
     else {
       personService
       .create({name: newName, number: newNumber})

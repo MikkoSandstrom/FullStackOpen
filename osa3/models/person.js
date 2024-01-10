@@ -1,10 +1,5 @@
 const mongoose = require('mongoose')
 
-const password = 'fullstack'
-
-//const url =
-  //`mongodb+srv://mikkosandstrom:${password}@fullstack.572fdh0.mongodb.net/PhoneBook?retryWrites=true&w=majority`
-
 mongoose.set('strictQuery', false)
 
 const url = process.env.MONGODB_URL
